@@ -32,15 +32,27 @@ fun GraphApplication(modifier: Modifier = Modifier) {
                             modifier = modifier
                         )
                     }
-                    //縦棒グラフ画面
+                    //横棒グラフ画面
                     composable("horizontal_bar_graph") {
                         HorizontalBarGraph(
                             modifier = modifier
                         )
                     }
-                    //縦棒グラフアニメーション画面
+                    //横棒グラフアニメーション画面
                     composable("horizontal_bar_animate_graph") {
                         HorizontalBarAnimateGraph(
+                            modifier = modifier
+                        )
+                    }
+                    //縦棒グラフ画面
+                    composable("vertical_bar_graph") {
+                        VerticalBarGraph(
+                            modifier = modifier
+                        )
+                    }
+                    //縦棒グラフアニメーション画面
+                    composable("vertical_animate_bar_graph") {
+                        VerticalAnimateBarGraph(
                             modifier = modifier
                         )
                     }

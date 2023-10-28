@@ -69,5 +69,35 @@ fun GraphList(
                 )
             }
         }
+        item {
+            Row(
+                verticalAlignment = Alignment.CenterVertically, modifier = modifier
+                    .height(50.dp)
+                    .fillMaxWidth()
+                    .padding(bottom = 1.dp)
+                    .background(Color.Gray)
+                    .clickable { navController.navigate("vertical_bar_graph") }
+            ) {
+                Text(
+                    text = "VerticalBarGraph",
+                    fontSize = 18.sp
+                )
+            }
+        }
+        item {
+            Row(
+                verticalAlignment = Alignment.CenterVertically, modifier = modifier
+                    .height(50.dp)
+                    .fillMaxWidth()
+                    .padding(bottom = 1.dp)
+                    .background(Color.Gray)
+                    .clickable { navController.navigate("vertical_animate_bar_graph") }
+            ) {
+                Text(
+                    text = "VerticalAnimateBarGraph",
+                    fontSize = 18.sp
+                )
+            }
+        }
     }
 }

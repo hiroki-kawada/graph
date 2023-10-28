@@ -11,19 +11,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.graphapp.ui.theme.GraphAppTheme
 
 @Composable
-fun HorizontalBarGraph(
+fun VerticalBarGraph(
     modifier: Modifier = Modifier
 ) {
-    val sampleValues = listOf(200, 300, 400, 500, 650)
+    val sampleValues = listOf(300, 500, 700, 900, 1100)
 
     Canvas(modifier = modifier.fillMaxSize()) {
-        val graphHeight = (size.height / sampleValues.size)
+        val graphWidth = size.width / sampleValues.size
 
         for (i in sampleValues.indices) {
             drawRect(
-                topLeft = Offset(0f, (graphHeight * i)),
+                topLeft = Offset(graphWidth * i, size.height),
                 color = Color.Red,
-                size = Size(width = sampleValues[i].toFloat(), height = graphHeight - 10)
+                size = Size(width = graphWidth - 10, height = -sampleValues[i].toFloat())
             )
         }
     }
@@ -31,8 +31,8 @@ fun HorizontalBarGraph(
 
 @Preview(showBackground = true)
 @Composable
-fun HorizontalBarGraphPreview() {
+fun VerticalBarGraphPreview() {
     GraphAppTheme {
-        HorizontalBarGraph()
+        VerticalBarGraph()
     }
 }

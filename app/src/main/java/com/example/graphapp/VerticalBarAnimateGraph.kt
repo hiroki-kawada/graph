@@ -17,16 +17,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.graphapp.ui.theme.GraphAppTheme
 
 @Composable
-fun HorizontalBarAnimateGraph(
+fun VerticalAnimateBarGraph(
     modifier: Modifier = Modifier
 ) {
-    val sampleValues = listOf(200, 300, 400, 500, 650)
+    val sampleValues = listOf(300, 500, 700, 900, 1100)
 
     val animationFlag = remember { mutableStateOf(false) }
-    val animateWidthList = mutableListOf<Float>()
+
+    val animateHeightList = mutableListOf<Float>()
     for (i in sampleValues.indices) {
         val durationMillis = 500 * i
-        val animateWidth by animateFloatAsState(
+        val animateHeight by animateFloatAsState(
             targetValue = if (animationFlag.value) 1f else 0f,
             animationSpec = tween(
                 durationMillis = 500,
@@ -34,18 +35,20 @@ fun HorizontalBarAnimateGraph(
                 delayMillis = durationMillis
             )
         )
-        animateWidthList.add(animateWidth)
+        animateHeightList.add(animateHeight)
     }
+
+
     Canvas(modifier = modifier.fillMaxSize()) {
-        val graphHeight = (size.height / sampleValues.size)
+        val graphWidth = size.width / sampleValues.size
         animationFlag.value = true
         for (i in sampleValues.indices) {
             drawRect(
-                topLeft = Offset(0f, (graphHeight * i)),
+                topLeft = Offset(graphWidth * i, size.height),
                 color = Color.Red,
                 size = Size(
-                    width = animateWidthList[i] * sampleValues[i].toFloat(),
-                    height = graphHeight - 10
+                    width = graphWidth - 10,
+                    height = animateHeightList[i] * -sampleValues[i].toFloat()
                 )
             )
         }
@@ -54,8 +57,8 @@ fun HorizontalBarAnimateGraph(
 
 @Preview(showBackground = true)
 @Composable
-fun HorizontalBarAnimateGraphPreview() {
+fun VerticalAnimateBarGraphPreview() {
     GraphAppTheme {
-        HorizontalBarAnimateGraph()
+        VerticalAnimateBarGraph()
     }
 }
