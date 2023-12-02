@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -95,6 +97,36 @@ fun GraphList(
             ) {
                 Text(
                     text = "VerticalAnimateBarGraph",
+                    fontSize = 18.sp
+                )
+            }
+        }
+        item {
+            Row(
+                verticalAlignment = Alignment.CenterVertically, modifier = modifier
+                    .height(50.dp)
+                    .fillMaxWidth()
+                    .padding(bottom = 1.dp)
+                    .background(Color.Gray)
+                    .clickable { navController.navigate("circle_graph") }
+            ) {
+                Text(
+                    text = "CircleGraph",
+                    fontSize = 18.sp
+                )
+            }
+        }
+        item {
+            Row(
+                verticalAlignment = Alignment.CenterVertically, modifier = modifier
+                    .height(50.dp)
+                    .fillMaxWidth()
+                    .padding(bottom = 1.dp)
+                    .background(Color.Gray)
+                    .clickable { navController.navigate("circle_animate_graph") }
+            ) {
+                Text(
+                    text = "CircleAnimateGraph",
                     fontSize = 18.sp
                 )
             }

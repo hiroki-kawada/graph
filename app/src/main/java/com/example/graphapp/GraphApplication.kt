@@ -56,6 +56,18 @@ fun GraphApplication(modifier: Modifier = Modifier) {
                             modifier = modifier
                         )
                     }
+                    //円グラフ画面
+                    composable("circle_graph") {
+                        CircleGraph(
+                            modifier = modifier
+                        )
+                    }
+                    //円グラフアニメーション画面
+                    composable("circle_animate_graph") {
+                        CircleAnimateGraph(
+                            modifier = modifier
+                        )
+                    }
                 }
 
             }
